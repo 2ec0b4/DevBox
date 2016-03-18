@@ -1,6 +1,6 @@
 # Mac OS X Dev Box
 
-Mac OS X Dev Box with dynamic virtual hosts
+Mac OS X Dev Box with dynamic virtual hosts: create a new folder in your vagrant webroot and have it directly accessible on a local.dev subdomain through a local dns lookup
 
 ## Box content
 
@@ -18,6 +18,8 @@ Mac OS X Dev Box with dynamic virtual hosts
     * dbuser:dbuser
 * MailHog
   * after installation, accessible at <http://devbox.puphpet:8025/>
+
+If you are using [vagrant-hostmanager](https://github.com/devopsgroup-io/vagrant-hostmanager), the hostname ```devbox.puphpet``` will be automatically add to your ```/etc/hosts``` file. If not, you will have to add it manually.
 
 ## Prerequisites
 
