@@ -17,7 +17,7 @@ Mac OS X Dev Box with dynamic virtual hosts
     * root:root
     * dbuser:dbuser
 * MailHog
-  * after installation, accessible at <http://192.168.100.100:8025/>
+  * after installation, accessible at <http://devbox.puphpet:8025/>
 
 ## Prerequisites
 

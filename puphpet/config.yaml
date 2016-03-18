@@ -27,7 +27,7 @@ vagrantfile:
                                 vflmnfp_qex16ki0vm1b:
                                     host: '9067'
                                     guest: '22'
-                        hostname: machine1.puphpet
+                        hostname: devbox.puphpet
                         memory: '512'
                         cpus: '1'
         provision:
