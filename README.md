@@ -81,6 +81,11 @@ $ touch html/test/index.php
 $ ping -c 1 test.local.dev
 ```
 
+Here is a command to list DNS servers configured on the system
+```
+$ scutil --dns
+```
+
 ## Credits
 
 Based on this great post: <https://passingcuriosity.com/2013/dnsmasq-dev-osx/>
