@@ -194,6 +194,7 @@ php:
             - cli
             - intl
             - sqlite
+            - mbstring
         pear: {  }
         pecl: {  }
     ini:
