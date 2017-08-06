@@ -4,14 +4,14 @@ Mac OS X Dev Box with dynamic virtual hosts: create a new folder in your vagrant
 
 ## Box content
 
-* Ubuntu Trusty 14.04 LTS x64
+* Ubuntu Xenial 16.04 LTS x64
 * Apache 2.4
-* Ruby 2.1.2
+* Ruby 2.3.1
   * capistrano
   * capistrano-composer
   * capistrano-file-permissions
-* PHP 5.6
-* MySQL 5.6
+* PHP 7.1
+* MariaDB 10.2
   * Database name: dbname
   * Users:
     * root:root
