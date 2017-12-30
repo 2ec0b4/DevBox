@@ -1,6 +1,6 @@
 # Mac OS X Dev Box
 
-Mac OS X Dev Box with dynamic virtual hosts: create a new folder in your vagrant webroot and have it directly accessible on a local.dev subdomain through a local dns lookup
+Mac OS X Dev Box with dynamic virtual hosts: create a new folder in your vagrant webroot and have it directly accessible on a dev.local subdomain through a local dns lookup
 
 ## Box content
 
@@ -49,7 +49,7 @@ $ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 $ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 ```
 
-Insert ```address=/local.dev/192.168.100.100``` into the dnsmasq configuration file: ```/usr/local/etc/dnsmasq.conf``` (near ```address=/double-click.net/127.0.0.1```, for example)
+Insert ```address=/dev.local/192.168.100.100``` into the dnsmasq configuration file: ```/usr/local/etc/dnsmasq.conf``` (near ```address=/double-click.net/127.0.0.1```, for example)
 
 Restart dnsmasq:
 ```
@@ -59,10 +59,10 @@ $ sudo launchctl start homebrew.mxcl.dnsmasq
 
 ## Configuring Mac OS X
 
-Send .dev queries to dnsmasq:
+Send .local queries to dnsmasq:
 ```
 $ sudo mkdir -p /etc/resolver
-$ sudo tee /etc/resolver/dev >/dev/null <<EOF
+$ sudo tee /etc/resolver/local >/dev/null <<EOF
 nameserver 127.0.0.1
 EOF
 ```
@@ -78,7 +78,7 @@ Test the configuration:
 ```
 $ mkdir html/test/
 $ touch html/test/index.php
-$ ping -c 1 test.local.dev
+$ ping -c 1 test.dev.local
 ```
 
 Here is a command to list DNS servers configured on the system
