@@ -43,7 +43,7 @@ $ brew install dnsmasq
 
 Copy the dnsmasq example files and start dnsmasq automatically:
 ```
-$ cp $(brew list dnsmasq | grep /dnsmasq.conf.example$) /usr/local/etc/dnsmasq.conf
+$ cp $(brew list dnsmasq | grep /dnsmasq.conf$) /usr/local/etc/dnsmasq.conf
 $ sudo cp $(brew list dnsmasq | grep /homebrew.mxcl.dnsmasq.plist$) /Library/LaunchDaemons/
 $ sudo chown root /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
 $ sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
