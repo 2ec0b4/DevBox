@@ -3,7 +3,7 @@ vagrantfile:
     vm:
         provider:
             local:
-                box: puphpet/ubuntu1604-x64
+                box: bento/ubuntu-16.04
                 box_url: puphpet/ubuntu1404-x64
                 box_version: '0'
                 chosen_virtualizer: virtualbox
@@ -41,7 +41,7 @@ vagrantfile:
                     - puphpet/puppet/manifests
                 options:
                     - '--verbose'
-                    - '--hiera_config /vagrant/puphpet/puppet/hiera.yaml'
+                    - '--hiera_config /opt/puphpet/puppet/hiera.yaml'
         synced_folder:
             vflsf_1tc1psbd5aca:
                 owner: www-data
@@ -148,11 +148,6 @@ nginx:
                         - $uri
                         - $uri/
                         - /index.php$is_args$args
-                    fastcgi: ''
-                    fastcgi_index: ''
-                    fastcgi_split_path: ''
-                    proxy: ''
-                    proxy_redirect: ''
                 nxvl_tlqzp8vb4r55:
                     www_root: ''
                     location: '~ \.php$'
@@ -162,16 +157,14 @@ nginx:
                         - $uri
                         - $uri/
                         - /index.php$is_args$args
+                    set:
+                        - '$path_info $fastcgi_path_info'
                     fastcgi: '127.0.0.1:9000'
                     fastcgi_index: index.php
                     fastcgi_split_path: '^(.+\.php)(/.*)$'
                     fast_cgi_params_extra:
                         - 'SCRIPT_FILENAME $request_filename'
                         - 'APP_ENV dev'
-                    set:
-                        - '$path_info $fastcgi_path_info'
-                    proxy: ''
-                    proxy_redirect: ''
     proxies: {  }
 apache:
     install: '1'
@@ -263,7 +256,7 @@ ruby:
         rv_a00w9m65lbe8:
             default: '1'
             bundler: '1'
-            version: 2.3.1
+            version: '2.3'
             gems:
                 - deep_merge
                 - activesupport
@@ -295,6 +288,7 @@ mariadb:
     databases:
         mariadbnd_eee5ctir5rh1:
             name: dbname
+            collate: utf8_general_ci
             sql: ''
     grants:
         mariadbng_wt6726e7byao:
@@ -315,6 +309,7 @@ mysql:
     databases:
         mysqlnd_kmr7e5gs94b2:
             name: dbname
+            collate: utf8_general_ci
             sql: ''
     grants:
         mysqlng_k23ch2027jz5:
@@ -339,7 +334,7 @@ mongodb:
         bind_ip: 127.0.0.1
         port: '27017'
     globals:
-        version: 2.6.0
+        version: 3.6.2
     databases: {  }
 redis:
     install: '0'
@@ -382,9 +377,4 @@ elastic_search:
     instances:
         esi_jcgko7ggflot:
             name: es-01
-solr:
-    install: '0'
-    settings:
-        version: 4.10.2
-        port: '8984'
 

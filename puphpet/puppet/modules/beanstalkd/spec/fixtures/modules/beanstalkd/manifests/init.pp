@@ -67,23 +67,20 @@ define beanstalkd::config ( # name
       $fileensure         = 'absent'
     }
     running: {
-      $serviceenable  = 'true'
-      $serviceensure  = 'running'
-      $fileensure     = 'present'
+      $ourpackageversion = $packageversion
+      $serviceenable     = 'true'
+      $serviceensure     = 'running'
+      $fileensure        = 'present'
     }
     stopped: {
-      $serviceenable  = 'false'
-      $serviceensure  = 'stopped'
-      $fileensure     = 'present'
+      $ourpackageversion = $packageversion
+      $serviceenable     = 'false'
+      $serviceensure     = 'stopped'
+      $fileensure        = 'present'
     }
     default: {
       fail("ERROR [${module_name}]: enable must be one of: running stopped absent")
     }
-  }
-
-  # for packageversion, use what's configured unless we're set (which should only be in the absent case..)
-  if ! $ourpackageversion {
-    $ourpackageversion = $packageversion
   }
 
   # for service and package name - if we've specified one, use it. else use the default
