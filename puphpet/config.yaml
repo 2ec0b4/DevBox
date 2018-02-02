@@ -200,6 +200,7 @@ php:
             - curl
             - soap
             - xml
+            - zip
         pear: {  }
         pecl: {  }
     ini:
